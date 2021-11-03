@@ -6,4 +6,4 @@
 > [Full stack project documentation](https://github.com/noelmaurice/full_stack_jee_spring_security_jwt/blob/master/README.md)
 > 
 > Enjoy and see you soon!
-> 
+>
