@@ -1,0 +1,23 @@
+<div class="container" *ngIf="user">
+
+  <div class="card">
+    <div class="card-body">
+      <p *ngIf="accessToken">
+        <strong>Token:</strong><br />
+        {{ accessToken.substring(0, 20) }} ...
+        {{ accessToken.substr(accessToken.length - 20) }}
+      </p>
+    </div>
+  </div>
+  <br />
+  <p>
+    <strong>Email:</strong>
+    {{ user.email }}
+  </p>
+  <strong>Role{{ user.roles!.length | customPlural }}:</strong>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item" *ngFor="let role of user.roles">
+      {{ role }}
+    </li>
+  </ul>
+</div>

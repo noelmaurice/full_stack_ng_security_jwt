@@ -1,0 +1,57 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+  <div class="container-fluid">
+
+    <a href="#" class="navbar-brand">security_jwt</a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a (click)="navigate(homePath)"
+             [className]="(activePath == homePath) ? 'nav-link active' : 'nav-link'">Home</a>
+        </li>
+      </ul>
+
+      <div class="d-flex">
+        <ul class="navbar-nav ml-auto" *ngIf="user == null">
+          <li class="nav-item">
+            <a (click)="navigate(registerPath)"
+               [className]="(activePath == registerPath) ? 'nav-link active' : 'nav-link'">Sign Up</a>
+          </li>
+          <li class="nav-item">
+            <a (click)="navigate(loginPath)"
+               [className]="(activePath == loginPath) ? 'nav-link active' : 'nav-link'">Login</a>
+          </li>
+        </ul>
+      </div>
+
+      <ul class="navbar-nav ml-auto" *ngIf="user != null">
+        <li class="nav-item">
+          <a (click)="navigate(profilePath)"
+             [className]="(activePath == profilePath) ? 'nav-link active' : 'nav-link'">
+            <i class="bi bi-journal-check">&nbsp;Profile</i>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href class="nav-link" (click)="logout()">Logout</a>
+        </li>
+      </ul>
+
+      <div class="loading" *ngIf="isLoading$ | async; else loadingBlock">
+        <img *ngIf="isLoading$ | async"
+             src="/assets/img/loading.gif" alt="is loading"/>
+      </div>
+      <ng-template #loadingBlock>
+        <div class="loading">
+          <img src="/assets/img/loading-hidden.png" alt="loaded"/>
+        </div>
+      </ng-template>
+    </div>
+
+  </div>
+</nav>

@@ -1,0 +1,76 @@
+<h4>Login form</h4>
+
+<form
+  (ngSubmit)="onSubmit()"
+  [formGroup]="form"
+  class="card-body"
+  novalidate
+>
+
+  <!-- username -->
+  <div class="form-group">
+    <label for="username">Username</label>
+    <input
+      class="form-control"
+      formControlName="username"
+      id="username"
+      placeholder="Username"
+      type="text"
+    />
+    <small *ngIf="username && username.errors && username.dirty" class="form-text text-muted">
+      <span [hidden]="!username.errors.required">
+        Required
+      </span>
+
+      <span [hidden]="!username.errors.minlength">
+        Too short
+      </span>
+
+      <span [hidden]="!username.errors.maxlength">
+        Too long
+      </span>
+
+    </small>
+  </div>
+
+  <!-- password -->
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input
+      class="form-control"
+      formControlName="password"
+      id="password"
+      placeholder="Password"
+      type="password"
+    />
+    <small
+      *ngIf="password && password.errors && password.dirty"
+      class="form-text text-muted"
+    >
+      <span [hidden]="!password.errors.required">
+        Required
+      </span>
+
+      <span [hidden]="!password.errors.minlength">
+        Too short
+      </span>
+
+      <span [hidden]="!password.errors.maxlength">
+        Too long
+      </span>
+    </small>
+  </div>
+
+  <!-- Bouton de soumission du formulaire -->
+  <p class="text-center py-3">
+    <button
+      [disabled]="!form.valid"
+      [ngClass]=
+        "{'btn-success':form.valid,'btn-outline-info':!form.valid}"
+      class="btn"
+      type="submit">
+      Validate
+    </button>
+  </p>
+
+</form>

@@ -1,0 +1,12 @@
+<blockquote *ngIf="user == null; else user_connected" class="blockquote">
+  <p class="mb-0 lead">
+    It's quiet here.<br/>There is noboby.<br/>Maybe, can you connect to the platform.
+  </p>
+</blockquote>
+
+<ng-template #user_connected>
+  <p class="mb-0 lead">
+    Congratulation! You have connected with success. It was not easy at all.&nbsp;<i class="bi bi-emoji-smile"></i><br/><br/>
+    Nice to see you.<br/><br/>Now that you are identified, you can use the platform services: For that, see the side nav menu.
+  </p>
+</ng-template>

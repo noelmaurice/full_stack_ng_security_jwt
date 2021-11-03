@@ -1,0 +1,14 @@
+<div *ngIf="(toastr$ | async) as toastr">
+  <div
+    [className]="
+      (toastr.category == 'info') ? 'alert alert-info alert-dismissible fade show' :
+      (toastr.category == 'warning') ? 'alert alert-warning alert-dismissible fade show' :
+      (toastr.category == 'danger') ? 'alert alert-danger alert-dismissible fade show' :
+      'alert alert-success alert-dismissible fade show'"
+    role="alert" (click)="closeToastr()">
+    <span class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true"><i class="bi bi-x"></i>{{ toastr.message }}</span>
+    </span>
+  </div>
+</div>
+
