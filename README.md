@@ -1,4 +1,4 @@
->This angular application angular is a part of an FULL STACK project.
+>This angular application angular is a part of a FULL STACK project.
 >
 > So, the documentation for this FRONT APPLICATION is available with the BACK APPLICATION.
 > 
